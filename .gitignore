@@ -1,1 +1,4 @@
 *.zip
+*.doc
+*.docx
+dir_to_ignore/
