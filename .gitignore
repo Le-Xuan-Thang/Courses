@@ -1,4 +1,4 @@
 *.zip
 *.doc
 *.docx
-dir_to_ignore/
+!C4e
