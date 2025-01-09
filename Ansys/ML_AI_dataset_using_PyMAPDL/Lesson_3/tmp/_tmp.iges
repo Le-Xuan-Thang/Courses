@@ -1,0 +1,39 @@
+                                                                        S      1
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00S      2
+/NOPR                                                                   S      3
+/PREP7                                                                  S      4
+/TITLE,                                                                 S      5
+*SET,_RETURN,0.000000000000                                             S      6
+*SET,_STATUS,0.000000000000                                             S      7
+*SET,_UIQR,17.00000000000                                               S      8
+*SET,__FLOATPARAMETER__,0.000000000000                                  S      9
+*SET,__PYMAPDL_SESSION_ID__,'8f0f89e0885c4cbeab003da6c98'               S     10
+*SET,__TMPVAR__,1.000000000000                                          S     11
+TREF,0.00000000                                                         S     12
+IRLF,0                                                                  S     13
+BFUNIF,TEMP,_TINY                                                       S     14
+ACEL,0.00000000,0.00000000,0.00000000                                   S     15
+OMEGA,0.00000000,0.00000000,0.00000000                                  S     16
+DOMEGA,0.00000000,0.00000000,0.00000000                                 S     17
+CGLOC,0.00000000,0.00000000,0.00000000                                  S     18
+CGOMEGA,0.00000000,0.00000000,0.00000000                                S     19
+DCGOMG,0.00000000,0.00000000,0.00000000                                 S     20
+KUSE,0                                                                  S     21
+TIME,0.00000000                                                         S     22
+ALPHAD,0.00000000                                                       S     23
+BETAD,0.00000000                                                        S     24
+DMPRAT,0.00000000                                                       S     25
+DMPSTR,0.00000000                                                       S     26
+CRPLIM,0.100000000,0                                                    S     27
+CRPLIM,0.00000000,1                                                     S     28
+NCNV,1,0.00000000,0,0.00000000,0.00000000                               S     29
+NEQIT,0                                                                 S     30
+ERESX,DEFA                                                              S     31
+/AUX15                                                                  S     32
+IOPTN,YES,DEFA                                                          S     33
+/GOPR                                                                   S     34
+!_END_OF_START                                                          S     35
+1H,,1H;,, 9H         ,                                                  G      1
+5HANSYS,22H            UP        ,,,,,,,1.0,6,,,,13H000000.000000,      G      2
+1.0000E-04,,,,9,,;                                                      G      3
+S     35G      3D      0P      0                                        T      1

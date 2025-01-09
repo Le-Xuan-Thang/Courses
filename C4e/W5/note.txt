@@ -1,0 +1,6 @@
+- pointers and simple arrays
+- what is pointer: con trỏ dùng để lưu trữ địa chỉ bộ nhớ của chúng 
+pointer được chỉ định bằng cách khai báo * trước variables. eg: *ptr
+- arrays
+- sort algorithms: bumble, merge,...
+

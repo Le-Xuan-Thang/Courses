@@ -1,0 +1,3180 @@
+/BATCH  
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       13:56:51
+/input,start,ans,'C:\Program Files\ANSYS Inc\v242\ANSYS\apdl\'  
+! ***************************************************************************** 
+!   
+!                  Sample START.ANS file provided by Ansys, Inc.
+!                     for the ANSYS Program 
+!                                    8/07/2002  
+!   
+! All of the commands included in this file are commented.  If you want to  
+! have any command executed at ANSYS start-up, simply remove the ! from the 
+! beginning of the line.
+!   
+!   
+!/NOPR                            ! Suppresses printout of the START.ANS file   
+!   
+!   
+! Suggested ANSYS abbreviations for the Toolbar:
+!   
+!*ABBR,REPLOT  ,/REPLOT           ! Replots the last graphics display   
+!*ABBR,ISO     ,/VIEW,,1,1,1      ! Changes the view to isometric   
+!*ABBR,FRONT   ,/VIEW,,0,0,1      ! Changes the view to front view  
+!*ABBR,VECTOR  ,/DEVICE,VECT,ON   ! Specifies vector mode for graphics displays 
+!*ABBR,RASTER  ,/DEVICE,VECT,OFF  ! Specifies raster mode for graphics displays 
+!*ABBR,NOERASE ,/NOERASE          ! Does not erase the screen between plots 
+!*ABBR,ERASE   ,/ERASE            ! Erases the screen between plots 
+!*ABBR,HID_LINE,Fnc_Pl_Hidden     ! Brings up dialog box for hidden-line options
+!*ABBR,INFO-ON ,/PLOPTS,INFO,ON   ! Turn the legend information on  
+!*ABBR,INFO-OFF,/PLOPTS,INFO,OFF  ! Turn the legend information off 
+!*abbr,RESU_ABR,Fnc_ABBRESU       ! Brings up a dialog box to read an   
+!  abbreviation file
+!   
+!   
+! The next abbreviations are system-dependent:  
+!   
+! To invoke a system editor:
+!*ABBR,SYS_EDIT,/SYS,xterm -title 'ANSYS  vi_Editor' -e vi &    ! UNIX  
+!*ABBR,SYS_EDIT,/SYS,start notepad                              ! Windows-NT
+!   
+! To bring up a system calculator:  
+!*ABBR,CALCULAT,/SYS,xcalc -stipple -geom -0+0 &                ! UNIX  
+!*ABBR,CALCULAT,/SYS,start calc                                 ! Windows-NT
+!*ABBR,CALCLTR ,/SYS,xhpcalc -geom -0+0 &                       ! HP
+!   
+!   
+! It is possible to have multiple toolbars by having different abbreviation 
+! files.  (The files must be available in a directory on your system.)  The way 
+! to access them is to have the following type of abbreviations defined INSIDE  
+! the initial (main) abbreviation file. 
+!   
+!*ABBR,MAINTBAR,ABBRESUM,NEW,MAINTBAR,ABBR   ! Restores the main Toolbar
+!*ABBR,GRPHTBAR,ABBRESUM,NEW,GRPHTBAR,ABBR   ! Restores a Toolbar customized
+!  for graphics manipulations   
+!*ABBR,POSTTBAR,ABBRESUM,NEW,POSTTBAR,ABBR   ! Restores a Toolbar customized
+!  for postprocessing   
+!   
+!   
+! There are five predefined ANSYS abbreviations in the Toolbar.  The following  
+! commands can be used to remove them (by removing the exclamation point).  
+!   
+!*ABBR, SAVE_DB 
+!*ABBR, RESUM_DB
+!*ABBR, QUIT
+!*ABBR, POWRGRPH
+!*ABBR, E-CAE   
+!   
+! Once the commands are turned off per above, they can be turned back   
+! on again in a different order by the following commands (remove the !).   
+!   
+!*ABBR, SAVE_DB , SAVE  
+!*ABBR, QUIT    , Fnc_/EXIT 
+!*ABBR, RESUM_DB, RESUME
+!*ABBR, E-CAE,    SIMUTIL   
+!*ABBR, POWRGRPH, Fnc_/GRAPHICS 
+! An abbreviation can be added to bring up your web browser with www.ansys.com  
+! by adding the following command   
+!*ABBR, ANSYSWEB, Fnc_HomePage  
+!   
+! Initial ANSYS parameters: 
+!PI=ACOS(-1)
+!   
+!   
+! The /MSTART command controls which GUI components initially appear
+! at program start-up.  
+!   
+!/MSTART,ZOOM,ON     ! Displays Pan-Zoom-Rotate dialog box  
+!/MSTART,WORK,ON     ! Displays Offset Working Plane dialog box 
+!/MSTART,WPSET,ON    ! Displays Working Plane Settings dialog box   
+!/MSTART,ABBR,ON     ! Displays Edit Abbreviations dialog box   
+!/MSTART,PARM,ON     ! Displays Scalar Parameters dialog box
+!/MSTART,SELE,ON     ! Displays Select Entities dialog box  
+!/MSTART,ANNO,ON     ! Displays Annotation dialog box   
+!/MSTART,HARD,ON     ! Displays Hard Copy dialog box
+!   
+! The /MPLIB command controls the default path used to find and display 
+! the material library files.   
+!   
+! UNIX example: 
+!/MPLIB,READ,/ansys_inc/v242/ansys/matlib   
+!   
+! PC example:   
+! NOTE: Pathname must be enclosed in SINGLE quotes  
+!/MPLIB,READ,'C:\Program Files\Ansys Inc\v242\ansys\matlib' 
+!   
+!/GOPR             ! Activates the printout previously suppressed by /NOPR  
+!   
+!/UIS,BORD,1,2,3    ! Sets Dynamic mode button order to default 
+!                    (left= 1,center= 2,right= 3)   
+!                    Button 1 is xy translate in dynamic mode   
+!                    Button 2 is zoom and rotate about view vector  
+!                    Button 3 is rotate about x or y axis   
+!   
+! ***********************  End of sample START.ANS file  ***********************
+/BATCH  
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       14:25:45
+/OUT,anstmp 
+/gopr   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'1bc877e6907a40a0a080cf41bf1'   
+/OUT
+/POST26 
+/OUT
+NUMVAR,200  
+/OUT
+FINISH, 
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+/SHOW,PNG,,,
+/OUT
+/NERR,,,-1,,
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'6dc1f70c098741efa5cb2843bea'   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'c2d7b19c4ac84f45afccdf4960f'   
+/OUT
+/CLE,NOSTART
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       14:25:59
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'7daff0d9116b40d5b159e2a3ca7'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/OUT,anstmp 
+ET,1,181,,,,,,, 
+/OUT
+/OUT,anstmp 
+MP,ex,1,10000000.0,,,,  
+/OUT
+/OUT,anstmp 
+SECTYPE,1,shell,,,  
+/OUT
+/OUT,anstmp 
+SECDATA,0.1,1,,,,,,,,,,,,   
+/OUT
+/OUT,anstmp 
+MSHAPE,1,2d 
+/OUT
+/OUT,anstmp 
+AESIZE,all,0.05 
+/OUT
+/OUT,anstmp 
+AMESH,all,, 
+/OUT
+/OUT,anstmp 
+ALLSEL,,
+/OUT
+/OUT,anstmp 
+NSLL,u,1
+/OUT
+/OUT,anstmp 
+NSLK,u  
+/OUT
+FINISH  
+/EXI    ,ALL
+/BATCH  
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       15:32:05
+/OUT,anstmp 
+/gopr   
+/OUT
+/OUT,anstmp 
+/verify 
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'5829d7d8bb834a9fbbc336c180e'   
+/OUT
+FINISH, 
+/OUT
+/POST26 
+/OUT
+NUMVAR,200  
+/OUT
+FINISH, 
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+/SHOW,PNG,,,
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'03990bc69261432aabeed26493b'   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'56762d04f7ea4bc39367f1f9cca'   
+/OUT
+/CLE,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'cdfb75c3fc20470abd656e364e6'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'0770276d07ff49e18982c88cffb'   
+/OUT
+FINISH  
+/CLE    ,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'1bdbc600ce974678a8b3e6e2514'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'2798255fed684a819cf70c274eb'   
+/OUT
+FINISH  
+/CLE    ,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'846e0f99cad54dcea1d6d7046ad'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/BATCH  
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       15:43:16
+/OUT,anstmp 
+/gopr   
+/OUT
+/OUT,anstmp 
+/verify 
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'177ff71c6855470faf919bc065f'   
+/OUT
+FINISH, 
+/OUT
+/POST26 
+/OUT
+NUMVAR,200  
+/OUT
+FINISH, 
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+/SHOW,PNG,,,
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'b73715f2db624355969caeecf2a'   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'b45a0263d7924a31bf71ccd8222'   
+/OUT
+/CLE,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'884bd3bc46434c47b51a804d5bc'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'178f1987aa9d4c07ada6b54d3bd'   
+/OUT
+FINISH  
+/CLE    ,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'05398b5689f645479694314141f'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/BATCH  
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       15:50:08
+/OUT,anstmp 
+/gopr   
+/OUT
+/OUT,anstmp 
+/verify 
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'9cb7ae4bf07f4f3cacc3db76b0d'   
+/OUT
+FINISH, 
+/OUT
+/POST26 
+/OUT
+NUMVAR,200  
+/OUT
+FINISH, 
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+/SHOW,PNG,,,
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'0874c6b5b7764bf1b27debc0379'   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'6e4d16a892dd460bacec7cfdc27'   
+/OUT
+/CLE,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'3fdc50171f4b455abaced3931a7'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/BATCH  
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       19:00:24
+/OUT,anstmp 
+/gopr   
+/OUT
+/OUT,anstmp 
+/verify 
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'7c01eb7a77fc47ac89f6da7acbc'   
+/OUT
+FINISH, 
+/OUT
+/POST26 
+/OUT
+NUMVAR,200  
+/OUT
+FINISH, 
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+/SHOW,PNG,,,
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'35b6d72ec4cf4e8a8e542ff8821'   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'4ce1df0ab22b454784fdf678d0c'   
+/OUT
+/CLE,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'9a1a29cb296643a587a571effe5'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'58f0d30041444f7b857b9aa28a4'   
+/OUT
+FINISH  
+/CLE    ,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'2453d79f96c548a090f651fd8d0'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+/OUT,anstmp 
+ELIST,,,,,, 
+/OUT
+/OUT,anstmp 
+ALIST,,,,   
+/OUT
+/BATCH  
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       19:10:57
+/OUT,anstmp 
+/gopr   
+/OUT
+/OUT,anstmp 
+/verify 
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'494c6046ea4e46a6a3e0ed07aee'   
+/OUT
+FINISH, 
+/OUT
+/POST26 
+/OUT
+NUMVAR,200  
+/OUT
+FINISH, 
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+/SHOW,PNG,,,
+/OUT
+/OUT,anstmp 
+/INQUIRE,,DIRECTORY,,   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'5af602ee4e254eccbf88686c84c'   
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'e2908ebdfa3d4b828b83e73e5d8'   
+/OUT
+/CLE,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'5c44b0442def490b8975864759d'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,NUM,MAXD,,,,,,
+/OUT
+NUMSTR,AREA,1   
+/OUT
+AGEN,2,ALL,,,,,,,1, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,NUM,MAXD,,,,,,
+/OUT
+ASEL,S,AREA,,2,2,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+AATT,,,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ETYP,,NUM,MAX,,,,,, 
+/OUT
+ET,1,MESH200,6,,,,,,
+/OUT
+SHPP,off,,  
+/OUT
+SMRTSIZE,7,,,,,,,,,,
+/OUT
+TYPE,1  
+/OUT
+/OUT,anstmp 
+AMESH,all,, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*VGET,_MYVGET_,area,,ATTR,NELM,,,   
+/OUT,anstmp 
+ESLA,S  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+NSLE,S,,
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+/OUT,anstmp 
+/com, Selecting nodes from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_pxockgrrqs_.inp   
+/OUT,_input_tmp_pxockgrrqs_.out 
+/INP,'tmp_sckugkwtlr.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_pxockgrrqs_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_pxockgrrqs_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_ldwlmoeane__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_ldwlmoeane__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_sckugkwtlr.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting elems from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_ixqdctkjcx_.inp   
+/OUT,_input_tmp_ixqdctkjcx_.out 
+/INP,'tmp_hmuwxeihxl.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ixqdctkjcx_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ixqdctkjcx_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_mdrvmqxzqp__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_mdrvmqxzqp__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_hmuwxeihxl.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_sqnwzedqkr_.inp   
+/OUT,_input_tmp_sqnwzedqkr_.out 
+/INP,'tmp_lcbjyratfg.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_sqnwzedqkr_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_sqnwzedqkr_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_ewseoqroyq__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_ewseoqroyq__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_lcbjyratfg.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_auqjctzqrm_.inp   
+/OUT,_input_tmp_auqjctzqrm_.out 
+/INP,'tmp_xsqlolzovl.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_auqjctzqrm_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_auqjctzqrm_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_cgetqfvcwd__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_cgetqfvcwd__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_xsqlolzovl.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_ngtspltwpx_.inp   
+/OUT,_input_tmp_ngtspltwpx_.out 
+/INP,'tmp_ykxxlgwasj.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ngtspltwpx_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ngtspltwpx_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_lfvsyzkrjy__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_lfvsyzkrjy__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_ykxxlgwasj.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+ACLEAR,ALL,,
+/OUT
+ADELE,ALL,,,1   
+/OUT
+NUMSTR,AREA,1   
+/OUT
+TYPE,1  
+/OUT
+ETDELE,1,,  
+/OUT
+SHPP,ON,,   
+/OUT
+SMRTSIZE,OFF,,,,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_mcxvnbkvdm_.inp   
+/OUT,_input_tmp_mcxvnbkvdm_.out 
+/INP,'tmp_hgvfsqxcqi.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_mcxvnbkvdm_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_mcxvnbkvdm_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_dpzzyrcdrh__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_dpzzyrcdrh__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_hgvfsqxcqi.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_qhnevkzlmz_.inp   
+/OUT,_input_tmp_qhnevkzlmz_.out 
+/INP,'tmp_fbhjevqrsq.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_qhnevkzlmz_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_qhnevkzlmz_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_ovzcedwsfo__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_ovzcedwsfo__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_fbhjevqrsq.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_mzcnwcswys_.inp   
+/OUT,_input_tmp_mzcnwcswys_.out 
+/INP,'tmp_ppkjlhqchm.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_mzcnwcswys_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_mzcnwcswys_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_vxszzxdjqd__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_vxszzxdjqd__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_ppkjlhqchm.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+/PREP7  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,NUM,MAXD,,,,,,
+/OUT
+NUMSTR,AREA,1   
+/OUT
+AGEN,2,ALL,,,,,,,1, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,NUM,MAXD,,,,,,
+/OUT
+ASEL,S,AREA,,2,2,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+AATT,,,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ETYP,,NUM,MAX,,,,,, 
+/OUT
+ET,1,MESH200,6,,,,,,
+/OUT
+SHPP,off,,  
+/OUT
+SMRTSIZE,7,,,,,,,,,,
+/OUT
+TYPE,1  
+/OUT
+/OUT,anstmp 
+AMESH,all,, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*VGET,_MYVGET_,area,,ATTR,NELM,,,   
+/OUT,anstmp 
+ESLA,S  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+NSLE,S,,
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+/OUT,anstmp 
+/com, Selecting nodes from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_fnpaufqqpd_.inp   
+/OUT,_input_tmp_fnpaufqqpd_.out 
+/INP,'tmp_flbuuvwwtm.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_fnpaufqqpd_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_fnpaufqqpd_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_aapxlcmfxd__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_aapxlcmfxd__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_flbuuvwwtm.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting elems from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_liqhtsxmdu_.inp   
+/OUT,_input_tmp_liqhtsxmdu_.out 
+/INP,'tmp_ostqbthdqb.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_liqhtsxmdu_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_liqhtsxmdu_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_ursrhfjpuo__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_ursrhfjpuo__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_ostqbthdqb.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_zeftwlbtwr_.inp   
+/OUT,_input_tmp_zeftwlbtwr_.out 
+/INP,'tmp_hyokblxvtf.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_zeftwlbtwr_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_zeftwlbtwr_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_bidcqxnjpv__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_bidcqxnjpv__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_hyokblxvtf.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_grqwnusrwd_.inp   
+/OUT,_input_tmp_grqwnusrwd_.out 
+/INP,'tmp_trenahvgyx.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_grqwnusrwd_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_grqwnusrwd_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_splueaovzf__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_splueaovzf__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_trenahvgyx.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_ticglyzekn_.inp   
+/OUT,_input_tmp_ticglyzekn_.out 
+/INP,'tmp_ypatoudbsz.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ticglyzekn_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ticglyzekn_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_lmmhacocoj__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_lmmhacocoj__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_ypatoudbsz.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+ACLEAR,ALL,,
+/OUT
+ADELE,ALL,,,1   
+/OUT
+NUMSTR,AREA,1   
+/OUT
+TYPE,1  
+/OUT
+ETDELE,1,,  
+/OUT
+SHPP,ON,,   
+/OUT
+SMRTSIZE,OFF,,,,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_qurprfnskj_.inp   
+/OUT,_input_tmp_qurprfnskj_.out 
+/INP,'tmp_doinwvyhbq.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_qurprfnskj_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_qurprfnskj_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_jssnzgnjdf__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_jssnzgnjdf__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_doinwvyhbq.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_aiapqasheg_.inp   
+/OUT,_input_tmp_aiapqasheg_.out 
+/INP,'tmp_dnmvrlevqf.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_aiapqasheg_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_aiapqasheg_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_pziwyuptmv__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_pziwyuptmv__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_dnmvrlevqf.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_fwrjzleoil_.inp   
+/OUT,_input_tmp_fwrjzleoil_.out 
+/INP,'tmp_ifhdoidzdp.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_fwrjzleoil_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_fwrjzleoil_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_gfxsyfelwh__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_gfxsyfelwh__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_ifhdoidzdp.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+/PREP7  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+/OUT,anstmp 
+ET,1,181,,,,,,, 
+/OUT
+/OUT,anstmp 
+MP,ex,1,10000000.0,,,,  
+/OUT
+/OUT,anstmp 
+SECTYPE,1,shell,,,  
+/OUT
+/OUT,anstmp 
+SECDATA,0.1,1,,,,,,,,,,,,   
+/OUT
+/OUT,anstmp 
+MSHAPE,1,2d 
+/OUT
+/OUT,anstmp 
+AESIZE,all,0.05 
+/OUT
+/OUT,anstmp 
+AMESH,all,, 
+/OUT
+/OUT,anstmp 
+ALLSEL,,
+/OUT
+/OUT,anstmp 
+NSLL,u,1
+/OUT
+/OUT,anstmp 
+NSLK,u  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,NUM,MAXD,,,,,,
+/OUT
+NUMSTR,AREA,1   
+/OUT
+AGEN,2,ALL,,,,,,,1, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,NUM,MAXD,,,,,,
+/OUT
+ASEL,S,AREA,,2,2,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+AATT,,,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ETYP,,NUM,MAX,,,,,, 
+/OUT
+ET,2,MESH200,6,,,,,,
+/OUT
+SHPP,off,,  
+/OUT
+SMRTSIZE,7,,,,,,,,,,
+/OUT
+TYPE,2  
+/OUT
+/OUT,anstmp 
+AMESH,all,, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*VGET,_MYVGET_,area,,ATTR,NELM,,,   
+/OUT,anstmp 
+ESLA,S  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+NSLE,S,,
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+/OUT,anstmp 
+/com, Selecting nodes from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_yfductrcer_.inp   
+/OUT,_input_tmp_yfductrcer_.out 
+/INP,'tmp_ldeevchlab.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_yfductrcer_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_yfductrcer_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_umctpsfdxo__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_umctpsfdxo__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_ldeevchlab.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting elems from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_yjqcnklfmi_.inp   
+/OUT,_input_tmp_yjqcnklfmi_.out 
+/INP,'tmp_dwfmqeqqgi.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_yjqcnklfmi_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_yjqcnklfmi_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_rfiemfmfyl__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_rfiemfmfyl__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_dwfmqeqqgi.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_ctlybhmouw_.inp   
+/OUT,_input_tmp_ctlybhmouw_.out 
+/INP,'tmp_cnzmbczoaq.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ctlybhmouw_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ctlybhmouw_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_tollisqfpw__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_tollisqfpw__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_cnzmbczoaq.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_eawiqxjzrf_.inp   
+/OUT,_input_tmp_eawiqxjzrf_.out 
+/INP,'tmp_xfotfilush.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_eawiqxjzrf_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_eawiqxjzrf_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_xegcunnigj__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_xegcunnigj__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_xfotfilush.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_ujfqymrbkv_.inp   
+/OUT,_input_tmp_ujfqymrbkv_.out 
+/INP,'tmp_syfgffjtki.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ujfqymrbkv_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ujfqymrbkv_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_morhyssysg__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_morhyssysg__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_syfgffjtki.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+ACLEAR,ALL,,
+/OUT
+ADELE,ALL,,,1   
+/OUT
+NUMSTR,AREA,1   
+/OUT
+TYPE,1  
+/OUT
+ETDELE,2,,  
+/OUT
+SHPP,ON,,   
+/OUT
+SMRTSIZE,OFF,,,,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting nodes from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_liepqjmxjx_.inp   
+/OUT,_input_tmp_liepqjmxjx_.out 
+/INP,'tmp_hnhgizjrll.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_liepqjmxjx_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_liepqjmxjx_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_iwjgmyctoi__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_iwjgmyctoi__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_hnhgizjrll.inp,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+/OUT,anstmp 
+/com, Selecting elems from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_eheebartai_.inp   
+/OUT,_input_tmp_eheebartai_.out 
+/INP,'tmp_wwvpmjwgnp.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_eheebartai_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_eheebartai_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_isakguhitv__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_isakguhitv__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_wwvpmjwgnp.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_eepqnzmgxd_.inp   
+/OUT,_input_tmp_eepqnzmgxd_.out 
+/INP,'tmp_exhyzwqndk.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_eepqnzmgxd_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_eepqnzmgxd_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_ceeudkbzuc__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_ceeudkbzuc__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_exhyzwqndk.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_hobxwpluzq_.inp   
+/OUT,_input_tmp_hobxwpluzq_.out 
+/INP,'tmp_nlcrmoyfhj.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_hobxwpluzq_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_hobxwpluzq_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_kkeahogqxv__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_kkeahogqxv__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_nlcrmoyfhj.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_gnqljxufbz_.inp   
+/OUT,_input_tmp_gnqljxufbz_.out 
+/INP,'tmp_xiiajnvvsv.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_gnqljxufbz_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_gnqljxufbz_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_azzdpafcoc__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_azzdpafcoc__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_xiiajnvvsv.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+/PREP7  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+NSLE,S,,
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+/OUT,anstmp 
+/com, Selecting nodes from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_tlggwwdtkv_.inp   
+/OUT,_input_tmp_tlggwwdtkv_.out 
+/INP,'tmp_jayqdxunqd.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_tlggwwdtkv_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_tlggwwdtkv_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_xodrdrpsmm__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_xodrdrpsmm__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_jayqdxunqd.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting elems from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_eyursprmxp_.inp   
+/OUT,_input_tmp_eyursprmxp_.out 
+/INP,'tmp_zdhdazhcud.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_eyursprmxp_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_eyursprmxp_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_nwtuifsmqe__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_nwtuifsmqe__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_zdhdazhcud.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_agnencxhbk_.inp   
+/OUT,_input_tmp_agnencxhbk_.out 
+/INP,'tmp_eehdaxbqym.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_agnencxhbk_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_agnencxhbk_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_uwbwiexdan__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_uwbwiexdan__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_eehdaxbqym.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_banwdoafyp_.inp   
+/OUT,_input_tmp_banwdoafyp_.out 
+/INP,'tmp_bjndxvpihm.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_banwdoafyp_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_banwdoafyp_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_iixvrqliwj__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_iixvrqliwj__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_bjndxvpihm.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_ktqhpwsano_.inp   
+/OUT,_input_tmp_ktqhpwsano_.out 
+/INP,'tmp_qfubwbugvr.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ktqhpwsano_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_ktqhpwsano_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_sffsfmhfma__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_sffsfmhfma__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_qfubwbugvr.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'469fc79b283e494783fa6dd0f71'   
+/OUT
+FINISH  
+/CLE    ,NOSTART
+/COM,ANSYS RELEASE                   BUILD  0.0      UP00000000       00:00:00
+/OUT
+/OUT,anstmp 
+*SET,__PYMAPDL_SESSION_ID__,'8f0f89e0885c4cbeab003da6c98'   
+/OUT
+/OUT,anstmp 
+/PREP7, 
+/OUT
+/OUT,anstmp 
+BLC4,0,0,4.5,2,0
+/OUT
+/OUT,anstmp 
+ADELE,all,,,
+/OUT
+/OUT,anstmp 
+LFILLT,1,2,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,2,3,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,3,4,0.2, 
+/OUT
+/OUT,anstmp 
+LFILLT,4,1,0.2, 
+/OUT
+/OUT,anstmp 
+NUMCMP,area 
+/OUT
+/OUT,anstmp 
+AL,all,,,,,,,,, 
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,0.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,0.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,0.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,1,1.5,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,2.25,1.5,   
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,3.5,1.5,
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,0.5,1,  
+/OUT
+/OUT,anstmp 
+HPTCREATE,area,1,,coord,4,1,
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,NUM,MAXD,,,,,,
+/OUT
+NUMSTR,AREA,1   
+/OUT
+AGEN,2,ALL,,,,,,,1, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,NUM,MAXD,,,,,,
+/OUT
+ASEL,S,AREA,,2,2,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+AATT,,,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ETYP,,NUM,MAX,,,,,, 
+/OUT
+ET,1,MESH200,6,,,,,,
+/OUT
+SHPP,off,,  
+/OUT
+SMRTSIZE,7,,,,,,,,,,
+/OUT
+TYPE,1  
+/OUT
+/OUT,anstmp 
+AMESH,all,, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*VGET,_MYVGET_,area,,ATTR,NELM,,,   
+/OUT,anstmp 
+ESLA,S  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+NSLE,S,,
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,ELEM,,ELIST,,,,  
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+/OUT,anstmp 
+/com, Selecting nodes from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_jqdmfurehm_.inp   
+/OUT,_input_tmp_jqdmfurehm_.out 
+/INP,'tmp_rvitvrnnkh.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_jqdmfurehm_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_jqdmfurehm_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_phsomvhbsn__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_phsomvhbsn__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_rvitvrnnkh.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting elems from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_mqzsrrbmgo_.inp   
+/OUT,_input_tmp_mqzsrrbmgo_.out 
+/INP,'tmp_sshiouswnn.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_mqzsrrbmgo_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_mqzsrrbmgo_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_beaozvdwlm__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_beaozvdwlm__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_sshiouswnn.inp,,,   
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_xgqmjvhzsm_.inp   
+/OUT,_input_tmp_xgqmjvhzsm_.out 
+/INP,'tmp_qjyizattbu.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_xgqmjvhzsm_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_xgqmjvhzsm_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_ysoespajwl__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_ysoespajwl__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_qjyizattbu.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_lmifrprzxb_.inp   
+/OUT,_input_tmp_lmifrprzxb_.out 
+/INP,'tmp_bscfbkwaiy.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_lmifrprzxb_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_lmifrprzxb_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_koejintafs__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_koejintafs__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_bscfbkwaiy.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_vjarxoetcv_.inp   
+/OUT,_input_tmp_vjarxoetcv_.out 
+/INP,'tmp_zgsauokncj.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_vjarxoetcv_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_vjarxoetcv_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_uoaaebvosu__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_uoaaebvosu__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_zgsauokncj.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+ACLEAR,ALL,,
+/OUT
+ADELE,ALL,,,1   
+/OUT
+NUMSTR,AREA,1   
+/OUT
+TYPE,1  
+/OUT
+ETDELE,1,,  
+/OUT
+SHPP,ON,,   
+/OUT
+SMRTSIZE,OFF,,,,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_vlyoypqvla_.inp   
+/OUT,_input_tmp_vlyoypqvla_.out 
+/INP,'tmp_ladulysccc.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_vlyoypqvla_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_vlyoypqvla_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_zwwdmbsexv__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_zwwdmbsexv__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_ladulysccc.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_tctumvkank_.inp   
+/OUT,_input_tmp_tctumvkank_.out 
+/INP,'tmp_ixarcdnvvx.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_tctumvkank_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_tctumvkank_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_ptvnpsnnnh__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_ptvnpsnnnh__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_ixarcdnvvx.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_nwupryfudo_.inp   
+/OUT,_input_tmp_nwupryfudo_.out 
+/INP,'tmp_qlkpxsgzcr.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_nwupryfudo_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_nwupryfudo_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_qhrtlnbdki__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_qhrtlnbdki__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_qlkpxsgzcr.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+/PREP7  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+CMLIST,,,   
+/OUT
+*VGET,_MYVGET_,NODE,,NLIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,ELEM,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+KSEL,ALL,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+LSEL,ALL,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+ASEL,ALL,,,,,,  
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+VSEL,NONE,,,,,, 
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,VOLU,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+IGESOUT,_tmp.iges,,,1   
+/OUT
+/PREP7  
+/OUT
+/OUT,anstmp 
+/com, Selecting kps from an iterable (i.e. set, list, tuple, or array)  
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_jfdzwurtna_.inp   
+/OUT,_input_tmp_jfdzwurtna_.out 
+/INP,'tmp_srprzhfibz.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_jfdzwurtna_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_jfdzwurtna_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_mezdcfcesa__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_mezdcfcesa__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_srprzhfibz.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,KP,,COUNT,,,,,,,
+/OUT
+*VGET,_MYVGET_,KP,,KLIST,,,,
+/OUT,anstmp 
+/com, Selecting lines from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_xsouanxwcz_.inp   
+/OUT,_input_tmp_xsouanxwcz_.out 
+/INP,'tmp_jqhxxtowap.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_xsouanxwcz_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_xsouanxwcz_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_xookrgdssb__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_xookrgdssb__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_jqhxxtowap.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+/OUT,anstmp 
+/com, Selecting areas from an iterable (i.e. set, list, tuple, or array)
+/OUT
+/OUT,anstmp 
+/COM, Entering in non_interactive mode  
+/OUT
+/OUT,anstmp 
+/INPUT,_input_tmp_wjegbfmbez_.inp   
+/OUT,_input_tmp_wjegbfmbez_.out 
+/INP,'tmp_qipcmtscla.inp'   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_wjegbfmbez_.inp,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,_input_tmp_wjegbfmbez_.out,,,   
+/OUT
+/OUT,anstmp 
+/SYS,dir /b /a > __tmp_sys_out_yrfwjqejdv__ 
+/OUT
+/OUT,anstmp 
+/DELETE,__tmp_sys_out_yrfwjqejdv__,,,   
+/OUT
+/OUT,anstmp 
+/DELETE,tmp_qipcmtscla.inp,,,   
+/OUT
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,AREA,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,AREA,,ALIST,,,,  
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT
+*VGET,_MYVGET_,LINES,,LLIST,,,, 
+*SET,__tmpvar__ , wrinqr(1) 
+/OUT
+/OUT,anstmp 
+*GET,__floatparameter__,LINE,,COUNT,,,,,,,  
+/OUT

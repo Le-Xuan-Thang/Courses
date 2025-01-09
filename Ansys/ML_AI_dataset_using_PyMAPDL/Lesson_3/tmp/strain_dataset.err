@@ -1,0 +1,47 @@
+/COM,ANSYS RELEASE 2024 R2           BUILD 24.2      UP20240603       19:10:54
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ The geometry is not available.  Issue the RESUME command to restore the 
+ database.  The NUMVAR command is ignored.                               
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ For array parameter _MYVGET_ the dimension number 1 is 0.  All          
+ dimensions must be greater than zero.  The value is set to 1.           
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ Deactivation of element shape checking is not recommended.              
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ For array parameter _MYVGET_ the dimension number 1 is 0.  All          
+ dimensions must be greater than zero.  The value is set to 1.           
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ Deactivation of element shape checking is not recommended.              
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ Structural elements without mid nodes usually produce much more         
+ accurate results in quad or brick shape.                                
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ Deactivation of element shape checking is not recommended.              
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ For array parameter _MYVGET_ the dimension number 1 is 0.  All          
+ dimensions must be greater than zero.  The value is set to 1.           
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ Deactivation of element shape checking is not recommended.              
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ For array parameter _MYVGET_ the dimension number 1 is 0.  All          
+ dimensions must be greater than zero.  The value is set to 1.           
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ Cannot write IGES file because hardpoints are defined.                  
+
+ *** ERROR ***                           CP =       0.000   TIME= 00:00:00
+ An unexpected error ( SIG$BREAK ) has occurred...  MAPDL internal data  
+ has been corrupted.  MAPDL is unable to recover and will terminate.     
+ Previously saved files are unaffected.  Please send the data leading    
+ to this operation to your technical support provider, as this will      
+ allow ANSYS, Inc to improve the program.                                
